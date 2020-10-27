@@ -12,10 +12,14 @@ fn main() {
 
 //    KO On ne peut avoir qu'une seul reference mutable par entite
 //    let mut s = String::from("hello");
-//    let r1 = &mut s;
-//    let r2 = &mut s;
-//    println!("{}, {}", r1, r2);
+   // let r1 = &mut s;
+   // let r2 = &mut s;
+   // println!("{}, {}", r1, r2);
     println!("{}", s);
+
+    // let reference_to_nothing = no_dangle();
+    let something = no_dangle();
+    println!("{}", something);
 }
 
 fn calculate_length(s: &String) -> usize {
@@ -29,3 +33,16 @@ fn change(some_string: &mut String) {
 // fn change_fail(some_string: &String) {
 //     some_string.push_str(", world");
 // }
+
+
+// fn dangle() -> &String {
+//     let s = String::from("hello");
+//
+//     &s
+// }
+
+fn no_dangle() -> String {
+    let s = String::from("hello no_dangle");
+
+    s
+}
